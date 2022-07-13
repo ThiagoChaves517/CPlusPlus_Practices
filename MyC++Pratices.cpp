@@ -12,7 +12,7 @@ int main()
 
 
 
-
+    
 
     return 0;
 }
@@ -75,51 +75,9 @@ void alligatorBanksATM() {
     double deposit;
     double withdraw;
     int answer1;
-
-    cout << "Very welcome to Alligator Bank´s System!\n";
-    cout << "- Please, choose one of the referred options:" << endl << endl;
-    cout << "     | Deposit (1) | Withdraw (2) | See balance (3) | ";
-    cin >> answer1;
-    cout << endl;
-
-    switch (answer1)
-    {
-    case 1:
-        cout << "How much do you want to deposit? ";
-        cin >> deposit;
-        balance = deposit;
-        cout << endl;
-
-        break;
-
-    case 2:
-        cout << "How much do you want to withdraw? ";
-        cin >> withdraw;
-        if (withdraw > balance)
-            cout << "Not enough money to withdraw." << endl;
-        else
-            balance = balance - withdraw;
-        cout << endl;
-
-        break;
-
-    case 3:
-        cout << "Your current balance is: " << balance << endl;
-        cout << endl;
-
-        break;
-
-    default:
-        break;
-    }
-
     char answer2;
 
-    cout << "Want to go back to menu? Y/N ";
-    cin >> answer2;
-    cout << endl;
-
-    while (answer2 == 'Y' || answer2 == 'y')
+    do
     {
         cout << "Very welcome to Alligator Bank´s System!\n";
         cout << "- Please, choose one of the referred options:" << endl << endl;
@@ -149,17 +107,21 @@ void alligatorBanksATM() {
             break;
 
         case 3:
-            cout << "Your current balance is: " << balance << endl;
+            cout << "Your current balance is: $" << balance << '.' << endl;
             cout << endl;
 
             break;
 
         default:
+            cout << "Invalid answer." << endl;
+            cout << endl;
             break;
         }
 
         cout << "Want to go back to menu? Y/N ";
         cin >> answer2;
         cout << endl;
-    }
+        
+
+    } while (answer2 == 'Y' || answer2 == 'y');
 }
