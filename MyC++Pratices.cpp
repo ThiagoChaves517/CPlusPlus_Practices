@@ -4,42 +4,21 @@ using std::cout; using std::cin; using std::endl; using std::string;
 void tellTheTruth();
 void introYourSelf(string salutation, string name, string knownAs);
 void primeNumDetector();
-
-bool isPrimeNumber(int number)
-{
-    for (int i = 2; i < number; i++) {
-        if (number % i == 0)
-        {
-            return false;
-        }
-    }
-
-    if (number == 1 || number == 0)
-    {
-        return false;
-    }
-
-    return true;
-
-
-}
+void alligatorBanksATM();
 
 int main()
 {
-    for (int i = 1; i <= 1000; i++)
-    {
-        bool isPrime = isPrimeNumber(i);
-        if (isPrime == true)
-        {
-            cout << i << " is a Prime Number!" << endl;
-        }
-    }
+    alligatorBanksATM();
 
-    primeNumDetector();
+
+
 
 
     return 0;
 }
+
+
+
 
 void tellTheTruth() {
     if (1 + 1 == 2) {
@@ -87,4 +66,100 @@ void primeNumDetector() {
         cout << "Sorry, but it is not a prime number.";
 
 
+}
+
+void alligatorBanksATM() {
+    //I have created an ATM app that checks balance, deposits and withdraws money. It will also have a menu.
+
+    double balance = 0;
+    double deposit;
+    double withdraw;
+    int answer1;
+
+    cout << "Very welcome to Alligator Bank´s System!\n";
+    cout << "- Please, choose one of the referred options:" << endl << endl;
+    cout << "     | Deposit (1) | Withdraw (2) | See balance (3) | ";
+    cin >> answer1;
+    cout << endl;
+
+    switch (answer1)
+    {
+    case 1:
+        cout << "How much do you want to deposit? ";
+        cin >> deposit;
+        balance = deposit;
+        cout << endl;
+
+        break;
+
+    case 2:
+        cout << "How much do you want to withdraw? ";
+        cin >> withdraw;
+        if (withdraw > balance)
+            cout << "Not enough money to withdraw." << endl;
+        else
+            balance = balance - withdraw;
+        cout << endl;
+
+        break;
+
+    case 3:
+        cout << "Your current balance is: " << balance << endl;
+        cout << endl;
+
+        break;
+
+    default:
+        break;
+    }
+
+    char answer2;
+
+    cout << "Want to go back to menu? Y/N ";
+    cin >> answer2;
+    cout << endl;
+
+    while (answer2 == 'Y' || answer2 == 'y')
+    {
+        cout << "Very welcome to Alligator Bank´s System!\n";
+        cout << "- Please, choose one of the referred options:" << endl << endl;
+        cout << "     | Deposit (1) | Withdraw (2) | See balance (3) | ";
+        cin >> answer1;
+        cout << endl;
+
+        switch (answer1)
+        {
+        case 1:
+            cout << "How much do you want to deposit? ";
+            cin >> deposit;
+            balance = deposit;
+            cout << endl;
+
+            break;
+
+        case 2:
+            cout << "How much do you want to withdraw? ";
+            cin >> withdraw;
+            if (withdraw > balance)
+                cout << "Not enough money to withdraw." << endl;
+            else
+                balance = balance - withdraw;
+            cout << endl;
+
+            break;
+
+        case 3:
+            cout << "Your current balance is: " << balance << endl;
+            cout << endl;
+
+            break;
+
+        default:
+            break;
+        }
+
+        cout << "Want to go back to menu? Y/N ";
+        cin >> answer2;
+        cout << endl;
+    }
 }
