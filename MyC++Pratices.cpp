@@ -9,9 +9,6 @@ void alligatorBanksATM();
 int main()
 {
     alligatorBanksATM();
-
-
-
     
 
     return 0;
@@ -76,6 +73,7 @@ void alligatorBanksATM() {
     double withdraw;
     int answer1;
     char answer2;
+    bool Ans2 = false;
 
     do
     {
@@ -115,6 +113,7 @@ void alligatorBanksATM() {
         default:
             cout << "Invalid answer." << endl;
             cout << endl;
+
             break;
         }
 
@@ -122,6 +121,37 @@ void alligatorBanksATM() {
         cin >> answer2;
         cout << endl;
         
+        switch (answer2)
+        {
+        case 'Y':
+            Ans2 = true;
 
-    } while (answer2 == 'Y' || answer2 == 'y');
+            break;
+
+        case 'y':
+            Ans2 = true;
+
+            break;
+
+        case 'N':
+
+            break;
+
+        case 'n':
+
+            break;
+
+        default:
+            cout << "Invalid answer." << endl;
+            cout << endl;
+            Ans2 = true;
+
+            cout << "Want to go back to menu? Y/N ";
+            cin >> answer2;
+            cout << endl;
+
+            break;
+        }
+
+    } while (Ans2 == true);
 }
