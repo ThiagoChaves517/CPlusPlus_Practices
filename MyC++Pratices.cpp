@@ -1,15 +1,31 @@
 #include <iostream>
 using std::cout; using std::cin; using std::endl; using std::string;
 
+
+
 void tellTheTruth();
 void introYourSelf(string salutation, string name, string knownAs);
 void primeNumDetector();
 void alligatorBanksATM();
+template<typename T>
+void LiteralSwap(T& a, T& b);
+
+int recursive_sum(int m) {
+    if (m == 1)
+        return m;
+    return m * recursive_sum(m-1);
+}
 
 int main()
 {
-    alligatorBanksATM();
-    
+    int m;
+    int counter = 0;
+
+    cout << "Factorial Calculator 7000\n\n";
+    cout << "Digit a number: ";
+    cin >> m;
+
+    cout << recursive_sum(m);
 
     return 0;
 }
@@ -154,4 +170,12 @@ void alligatorBanksATM() {
         }
 
     } while (Ans2 == true);
+}
+
+template<typename T>
+void LiteralSwap(T& a, T& b) {
+    //The function will only make this out if the varibles of the parameters are declared as references(ex: int& a).
+    int temp = a;
+    a = b;
+    b = temp;
 }
