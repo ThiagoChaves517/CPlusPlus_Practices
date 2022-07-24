@@ -1,34 +1,82 @@
 #include <iostream>
+#include <Windows.h>
 using std::cout; using std::cin; using std::endl; using std::string;
 
-
-
 void tellTheTruth();
+
 void introYourSelf(string salutation, string name, string knownAs);
+
 void primeNumDetector();
+
 void alligatorBanksATM();
+
 template<typename T>
 void LiteralSwap(T& a, T& b);
 
-int recursive_sum(int m) {
-    if (m == 1)
-        return m;
-    return m * recursive_sum(m-1);
-}
+class Human {
+private:
+    string KnownAs;
+    string Race;
+    int Age;
+    string Country;
+
+protected:
+    string Name;
+public:
+    Human(string name, string knownAs, int age) {
+        Name = name;
+        KnownAs = knownAs;
+        Age = age;
+    }
+    
+    void introYourSelf(string salutation = "Hello") {
+        cout << salutation << "! " << endl;
+        cout << "My name is " << Name << ", " << KnownAs << "." << endl;
+    }
+};
+
+class Fisher : public Human {
+public:    
+    Fisher(string name, string knownAs, int age):Human(name, knownAs, age) {
+
+    }
+
+    void fish() {
+        cout << Name << " threw a rod!\n";
+        Sleep(1000);
+        cout << '.' << endl;
+        Sleep(1000);
+        cout << '.' << endl;
+        Sleep(1000);
+        cout << '.' << endl << endl;
+        Sleep(1000);
+
+        cout << "But nothing landed." << endl;
+
+    }
+};
+
+
+
 
 int main()
 {
-    int m;
-    int counter = 0;
+    Human human_1("Esdras", "The Voice of The Wild", 15);
+    human_1.introYourSelf("Wassup");
 
-    cout << "Factorial Calculator 7000\n\n";
-    cout << "Digit a number: ";
-    cin >> m;
+    cout << endl;
 
-    cout << recursive_sum(m);
+    Fisher fisher_1("Jvnq", "The Fishing Master", 25);
+    fisher_1.introYourSelf("Hey");
+    fisher_1.fish();
+
 
     return 0;
 }
+
+
+
+
 
 
 
