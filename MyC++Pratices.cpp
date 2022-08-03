@@ -32,6 +32,7 @@ public:
     void introYourSelf(string salutation = "Hello") {
         cout << salutation << "! " << endl;
         cout << "My name is " << Name << ", " << KnownAs << "." << endl;
+        cout << endl;
     }
 };
 
@@ -58,17 +59,34 @@ public:
 
 
 
-
 int main()
 {
-    Human human_1("Esdras", "The Voice of The Wild", 15);
-    human_1.introYourSelf("Wassup");
+    //This is a normal variable:
 
-    cout << endl;
+    int n = 989;
+    
+    //The address of a variable can be reached by prefixing it with a "&":
+    
+    cout << &n << endl;
 
-    Fisher fisher_1("Jvnq", "The Fishing Master", 25);
-    fisher_1.introYourSelf("Hey");
-    fisher_1.fish();
+    cout << &n << endl;
+
+    //A pointer, in its turn, is a type of variable that receives an address, as if one was "pointing" the another:
+
+    int* ptr = &n;/*    <------------    This act is also known as "referencing". */
+
+    //But, in other hand, pointers can also be dereferenced. By adding an asterisk before it:
+
+    cout << *ptr << endl;
+
+    *ptr = 1012023;
+
+    cout << *ptr << " " << n << endl;
+
+
+
+    //Warning: A pointer can't be used if you didn't referenced it to a variable.
+
 
 
     return 0;
